@@ -13,15 +13,10 @@ export default function TextForm(props) {
        props.showAlert("Converted to lowercase","success");
     }
 
-    const handleCopyClick = async () => {
-    try {
-      await navigator.clipboard.writeText(text);
-      alert("Text copied to clipboard!");
-    } catch (err) {
-      console.error("Failed to copy: ", err);
+      const handleCopyClick = () => {
+      navigator.clipboard.writeText(text);
+      props.showAlert("Copy to clipboard","success");
     }
-    props.showAlert("Copy to clipboard","success");
-  };
 
     const handleClearClick = () => {
        let newText = '';
